@@ -1,0 +1,16 @@
+.dashboard{
+    color: #353535;
+    
+    h1{
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 300;
+    }
+
+    .dashcard{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        flex-wrap: wrap;
+    }
+}

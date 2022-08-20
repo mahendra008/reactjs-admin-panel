@@ -14,7 +14,7 @@ import SiteList from './SiteList'
 
 const Main = () => {
 
-  const [ showSiteList, setShowSiteList ] = useState(true);
+  const [ showSiteList, setShowSiteList ] = useState(false);
   
   const toggleSiteList = () => {
     setShowSiteList(!showSiteList);
