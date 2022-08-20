@@ -31,7 +31,7 @@ const CounterWidget = (props) => {
 
     let widget = data[props.name];
 
-    return (        
+    return (
         <div class="val">
         {widget.icon}
         <div>
