@@ -3,6 +3,7 @@
     height: 100%;
     background: #111827;
     color: #F3F3F3;
+    position: fixed;
 
     .logo{
         display: flex;
@@ -24,14 +25,19 @@
 
     .links{
         margin-top: 20px;
-        
+        height: 100vh;
+        overflow-y: scroll;
+        transform: 0.3s ease;
+
         li{
             display: flex;
             align-items: center;
             padding: 10px 10px;
             font-size: 16px;
             font-weight: 300;
+            color: #9F9F9F;
             cursor: pointer;
+            transition: all 0.3s ease;
             .icons{
                 width: 18px;
                 height: 18px;
@@ -40,7 +46,9 @@
         }
 
         li:hover{
-            background: #192339;;
+            background: #192339;
+            color: #F3F3F3;
+            transition: all 0.3s ease;
         }
         
         .title{
@@ -48,8 +56,43 @@
             align-items: center;
             justify-content: space-between;
             padding: 15px 10px;
-            color: #9F9F9F;
+            color: #F3F3F3;
             cursor: pointer;
         }
     }
+
+    .links:hover{
+        transform: 0.3s ease;
+        overflow-y: scroll;
+    }
 }
+
+.links::-webkit-scrollbar{
+    background: #111827;
+    width: 10px;
+    margin-right: 10px;
+  }
+  
+  .links::-webkit-scrollbar-track{
+    display: none;
+  }
+  
+  .links::-webkit-scrollbar-button{
+    display: none;
+  }
+  
+  .links::-webkit-scrollbar-thumb{
+    background: transparent;
+    border-radius: 10px;
+    border: solid 2px transparent;
+  }
+
+  .links:hover::-webkit-scrollbar-thumb{
+    background: #5d5d61;
+    border-radius: 10px;
+    border: solid 2px #111827;
+}
+
+  .links{
+    scrollbar-width:thin;
+  }

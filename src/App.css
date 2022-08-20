@@ -5,6 +5,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body{
+  background: #e6e6e6;
+}
+
 .App{
   display: flex;
+}
+
+.rightSection{
+  width: calc(100% - 250px);
+  margin-left: 250px;
 }

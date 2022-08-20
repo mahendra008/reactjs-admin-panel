@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavList.scss'
-import Logo from '../../assets/images/jio_logo.png';
+import Logo from '../../Assets/Images/jio_logo.png';
 
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import TableViewOutlinedIcon from '@mui/icons-material/TableViewOutlined';
@@ -24,17 +24,46 @@ const NavList = () => {
                 <p>Home</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
-            <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
-            <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
-            <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
-            <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+            <ul>
+                <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                <div className="title">
+                <p>Home 1</p>
+                    <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
+                </div>
+                <ul>
+                    <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                </ul>
+            </ul>
             <div className="title">
                 <p>Services</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
-            <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
-            <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
-            <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+            <ul>
+                <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+            </ul>
+            <div className="title">
+                <p>Utilities</p>
+                <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
+            </div>
+            <ul>
+                <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+            </ul>
+            <div className="title">
+                <p>Accounts</p>
+                <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
+            </div>
+            <ul>
+                <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+            </ul>
         </div>
     </div>
   )

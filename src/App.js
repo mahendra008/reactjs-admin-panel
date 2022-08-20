@@ -1,19 +1,28 @@
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
-import NavList from './components/NavList/NavList';
-import Main from './components/Main/Main';
+import NavList from "./Components/NavList/NavList";
+import Header from "./Components/Header/Header";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Users from "./Pages/Users/Users";
 
-import './App.scss';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <NavList />
-      <Main />
+      <div className="rightSection">
+      <Header />
       <BrowserRouter>
         <Routes>
+          <Route path="/">
+            <Route index element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="users" element={<Users />} />
+          </Route>
         </Routes>
       </BrowserRouter>
+      </div>
     </div>
   );
 }
