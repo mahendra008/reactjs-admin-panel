@@ -1,5 +1,5 @@
 .dataTable{
-    margin: 0 15px;
+    margin: 0 15px 30px 15px;
     box-shadow: 1px 0px 4px;
     border-radius: 5px;
 
@@ -13,6 +13,7 @@
 
             tr{
                 // background: rgba(17, 24, 39, 0.04);
+                background: #FFF;
             }
             .MuiBox-root{
                 margin-bottom: 5px;
@@ -20,9 +21,6 @@
 
             .MuiButtonBase-root {
                 width: 100%;
-                svg{
-                    margin-left: 20px;
-                }
             }
         }
 
