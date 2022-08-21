@@ -38,11 +38,11 @@ const Main = () => {
           <div className="count">9</div>
         </div>
         <div className="icoItems">
-          <ChatBubbleOutlineOutlinedIcon className="icons" />
+          <ChatBubbleOutlineOutlinedIcon className="icons msg" />
           <div className="count">10</div>
         </div>
         <div className="icoItems" onClick={toggleSiteList}>
-          <AppsOutlinedIcon className="icons fs-large" />
+          <AppsOutlinedIcon className="icons fs-large sites" />
           {showSiteList && <SiteList hideSiteList={hideSiteList} />}
         </div>
         <img src={Avatar} alt="JIO" />

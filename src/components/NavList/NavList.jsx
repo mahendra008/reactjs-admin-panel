@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom"
+
 import './NavList.scss'
 import Logo from '../../Assets/Images/jio_logo.png';
 
@@ -15,25 +17,36 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 const NavList = () => {
   return (
     <div className='navlist'>
-        <div className="logo">
-            <img src={Logo} alt="JIO" />
-            <h2>CNAAP</h2>
-        </div>
+        <Link to="/">
+            <div className="logo">
+                <img src={Logo} alt="JIO" />
+                <h2>CNAAP</h2>
+            </div>
+        </Link>
         <div className="links">
             <div className="title">
                 <p>Home</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
-                <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
-                <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                <Link to="/">
+                    <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                </Link>
+                <Link to="/users">
+                    <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                </Link>
+                <Link to="/">
+                    <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                </Link>
                 <div className="title">
                 <p>Home 1</p>
                     <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
                 </div>
                 <ul>
-                    <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                    
+                    <Link to="/">
+                        <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                    </Link>
                 </ul>
             </ul>
             <div className="title">
@@ -41,28 +54,48 @@ const NavList = () => {
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
-                <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
-                <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                <Link to="/users">
+                    <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                </Link>
+                <Link to="/">
+                    <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                </Link>
+                <Link to="/">
+                    <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                </Link>
             </ul>
             <div className="title">
                 <p>Utilities</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
-                <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
-                <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
-                <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                <Link to="/">
+                    <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                </Link>
+                <Link to="/users">
+                    <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                </Link>
+                <Link to="/users">
+                    <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                </Link>
+                <Link to="/">
+                    <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                </Link>
             </ul>
             <div className="title">
                 <p>Accounts</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
-                <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
-                <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                <Link to="/users">
+                    <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                </Link>
+                <Link to="/">
+                    <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                </Link>
+                <Link to="/">
+                    <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                </Link>
             </ul>
         </div>
     </div>

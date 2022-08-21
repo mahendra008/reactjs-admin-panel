@@ -13,7 +13,6 @@ const App = () => {
       <NavList />
       <div className="rightSection">
       <Header />
-      <BrowserRouter>
         <Routes>
           <Route path="/">
             <Route index element={<Dashboard />} />
@@ -21,7 +20,6 @@ const App = () => {
             <Route path="users" element={<Users />} />
           </Route>
         </Routes>
-      </BrowserRouter>
       </div>
     </div>
   );

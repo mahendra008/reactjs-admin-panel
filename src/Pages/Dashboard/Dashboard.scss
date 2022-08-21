@@ -1,20 +1,4 @@
 .dashboard{
-    color: #353535;
-    
-    .title{
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1{
-            font-size: 24px;
-            font-weight: 300;
-        }
-        span{
-            word-spacing: 2px;
-        }
-    }
-
     .dashcard{
         display: flex;
         justify-content: space-between;

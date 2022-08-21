@@ -4,6 +4,8 @@
     background: #111827;
     color: #F3F3F3;
     position: fixed;
+    
+    a{ color: #F3F3F3; }
 
     .logo{
         display: flex;
@@ -29,26 +31,29 @@
         overflow-y: scroll;
         transform: 0.3s ease;
 
-        li{
-            display: flex;
-            align-items: center;
-            padding: 10px 10px;
-            font-size: 16px;
-            font-weight: 300;
-            color: #9F9F9F;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            .icons{
-                width: 18px;
-                height: 18px;
-                margin-right: 10px;
-            }
-        }
+        a{
+          text-decoration: none;
+          li{
+              display: flex;
+              align-items: center;
+              padding: 10px 10px;
+              font-size: 16px;
+              font-weight: 300;
+              color: #9F9F9F;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              .icons{
+                  width: 18px;
+                  height: 18px;
+                  margin-right: 10px;
+              }
+          }
 
-        li:hover{
-            background: #192339;
-            color: #F3F3F3;
-            transition: all 0.3s ease;
+          li:hover{
+              background: #192339;
+              color: #F3F3F3;
+              transition: all 0.3s ease;
+          }
         }
         
         .title{

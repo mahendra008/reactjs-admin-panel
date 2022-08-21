@@ -88,14 +88,28 @@ header{
         37% { transform: rotate(2deg); }
         39% { transform: rotate(-1deg); }
         41% { transform: rotate(1deg); }
-      
+        
         43% { transform: rotate(0); }
         100% { transform: rotate(0); }
-      }
-    
+    }
+
+    @keyframes spin { 
+        100% { 
+            -webkit-transform: rotate(360deg); 
+            transform:rotate(360deg); 
+        } 
+    }
+
     .bell:hover{
         animation: 5s 2 ring;
     }
+
+    .msg:hover{
+        transform: scale(1.5) rotateZ(25deg);
+        color: #696969 !important;
+    }
+
+    .sites:hover{animation: 0.5s 1 spin;}
 }
 
 
