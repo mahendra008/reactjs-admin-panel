@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import './NavList.scss'
 import Logo from '../../Assets/Images/jio_logo.png';
@@ -17,36 +17,36 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 const NavList = () => {
   return (
     <div className='navlist'>
-        <Link to="/">
+        <NavLink activeClassName="active" to="/">
             <div className="logo">
                 <img src={Logo} alt="JIO" />
                 <h2>CNAAP</h2>
             </div>
-        </Link>
+        </NavLink>
         <div className="links">
             <div className="title">
                 <p>Home</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <Link to="/">
+                <NavLink activeClassName="active" to="/">
                     <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
-                </Link>
-                <Link to="/users">
+                </NavLink>
+                <NavLink activeClassName="active" to="/users">
                     <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/widgets">
                     <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
-                </Link>
+                </NavLink>
                 <div className="title">
                 <p>Home 1</p>
                     <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
                 </div>
                 <ul>
                     
-                    <Link to="/">
+                    <NavLink activeClassName="active" to="/healthcheck">
                         <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
-                    </Link>
+                    </NavLink>
                 </ul>
             </ul>
             <div className="title">
@@ -54,48 +54,48 @@ const NavList = () => {
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <Link to="/users">
+                <NavLink activeClassName="active" to="/users">
                     <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/logs">
                     <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/settings">
                     <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
-                </Link>
+                </NavLink>
             </ul>
             <div className="title">
                 <p>Utilities</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <Link to="/">
+                <NavLink activeClassName="active" to="/dashboard1">
                     <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
-                </Link>
-                <Link to="/users">
+                </NavLink>
+                <NavLink activeClassName="active" to="/users">
                     <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
-                </Link>
-                <Link to="/users">
+                </NavLink>
+                <NavLink activeClassName="active" to="/widget1">
                     <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/healthcheck1">
                     <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
-                </Link>
+                </NavLink>
             </ul>
             <div className="title">
                 <p>Accounts</p>
                 <KeyboardArrowDownOutlinedIcon className='arrowIcon' />
             </div>
             <ul>
-                <Link to="/users">
+                <NavLink activeClassName="active" to="/users">
                     <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/logs1">
                     <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink activeClassName="active" to="/settings1">
                     <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
-                </Link>
+                </NavLink>
             </ul>
         </div>
     </div>

@@ -31,7 +31,7 @@ const Main = () => {
       </div>
       <div className="headRight">
         <div className="icoItems">
-          <DarkModeOutlinedIcon className="icons" />
+          <DarkModeOutlinedIcon className="icons moon" />
         </div>
         <div className="icoItems">
           <NotificationsNoneOutlinedIcon className="icons bell" />

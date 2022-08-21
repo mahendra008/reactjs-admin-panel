@@ -93,23 +93,36 @@ header{
         100% { transform: rotate(0); }
     }
 
-    @keyframes spin { 
-        100% { 
-            -webkit-transform: rotate(360deg); 
-            transform:rotate(360deg); 
-        } 
+    @keyframes wiggle {
+        0%, 7% { transform: rotateZ(0); }
+        15% { transform: rotateZ(-50deg); }
+        20% { transform: rotateZ(5deg); }
+        25% { transform: rotateZ(-30deg); }
+        30% { transform: rotateZ(6deg); }
+        35% { transform: rotateZ(-10deg); }
+        40%, 100% { transform: rotateZ(0); }
+      }
+
+    @keyframes spin {
+        50% {  transform:rotate(360deg); }
+        100% {  transform:rotate(0deg);  }
     }
 
-    .bell:hover{
-        animation: 5s 2 ring;
+    @keyframes zoom {
+        50% { transform:scale(1.5) }
+        100% { transform:scale(1); }
     }
+
+    .bell:hover{ animation: 5s 2 ring; }
 
     .msg:hover{
-        transform: scale(1.5) rotateZ(25deg);
+        animation: 1.5s 5 wiggle;
         color: #696969 !important;
     }
 
-    .sites:hover{animation: 0.5s 1 spin;}
+    .moon:hover{ animation: 0.5s 1 zoom; }
+
+    .sites:hover{animation: 1s 1 spin;}
 }
 
 
