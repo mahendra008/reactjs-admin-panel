@@ -1,0 +1,71 @@
+.dataTable{
+    margin: 0 15px;
+    box-shadow: 1px 0px 4px;
+    border-radius: 5px;
+
+    table{
+        thead{
+            box-shadow: 0px 0px 3px;
+            .MuiTableCell-root{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            tr{
+                background: rgba(17, 24, 39, 0.04);
+            }
+            .MuiBox-root{
+                margin-bottom: 5px;
+            }
+
+            .MuiButtonBase-root {
+                width: 100%;
+                svg{
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        tbody {
+            tr:nth-child(2n-1){
+                background: rgba(0, 0, 0, 0.04);
+            }
+        }
+
+        .MuiFormControl-root{
+            .MuiInputBase-root{
+                border: 1px solid rgba(17, 24, 39, 0.42);
+                padding-left: 4px;
+                width: 88%;
+                svg{
+                    display: none;
+                }
+
+                input{
+                    border: none;
+                    outline: none;
+                }
+
+                input::placeholder{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+.css-1a1fmpi-MuiInputBase-root-MuiInput-root:before{
+    border: none !important;
+}
+
+input[type=text]:focus~.Mui-focused{
+    outline: 2px solid orange;     /* oranges! yey */
+}
+
+.MuiTableContainer-root{
+    border-radius: 5px;
+}
+.MuiTableCell-root{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

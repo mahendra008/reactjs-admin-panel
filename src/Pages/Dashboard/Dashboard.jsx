@@ -1,5 +1,6 @@
 import "./Dashboard.scss"
 import CounterWidget from "../../Components/CounterWidget/CounterWidget"
+import DataTable from "../../Components/DataTable/DataTable"
 
 const Dashboard = () => {
     return (
@@ -17,6 +18,7 @@ const Dashboard = () => {
           <CounterWidget name='hoto_submit' />
           <CounterWidget name='hoto_approve' />
         </div>
+        <DataTable theme="primary" />
       </div>
     )
   }
