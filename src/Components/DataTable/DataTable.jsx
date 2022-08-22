@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import MaterialReactTable from 'material-react-table';
-import Constants from '../../config/constants';
+import Constants from '../../Config/constants';
 
 import "./DataTable.scss";
 
