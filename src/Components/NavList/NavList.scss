@@ -32,7 +32,7 @@
         transform: 0.3s ease;
       
         .active > li{
-          background: rgba(255, 255, 255, 0.1);
+          // background: rgba(255, 255, 255, 0.1);
           color: #F3F3F3;
         }
 
@@ -43,8 +43,8 @@
               align-items: center;
               position: relative;
               padding: 10px 10px;
-              font-size: 16px;
-              font-weight: 300;
+              font-size: 14px;
+              font-weight: 400;
               color: #9F9F9F;
               cursor: pointer;
               .icons{
@@ -79,24 +79,67 @@
             background: rgba(255, 255, 255, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0 5px 5px 0;
             z-index: -1;
             transition: transform .3s ease;
           }
         }
         
         .title{
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 10px;
+            padding: 10px 10px;
+            margin: 15px 0;
             color: #F3F3F3;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 5px 5px 0;
             cursor: pointer;
-        }
-    }
 
-    .links:hover{
-        transform: 0.3s ease;
-        overflow-y: scroll;
+            .titleItems{
+              display: flex;
+              align-items: center;
+
+              svg{
+                margin-right: 10px;
+              }
+            }
+
+            svg{
+              display: block;
+              top: 15px;
+              right: 10px;
+              transition: 0.1s ease;
+            }
+
+            &:hover > svg{
+              display: inline-block;
+            }
+
+          /*
+            @keyframes spin {
+              50% {  transform:rotate(45deg);  }
+            }
+
+            svg{
+              transition: transform .1s;
+            }
+            &:hover > svg{
+              transform: rotate(-90deg);
+            }
+            */
+        }
+
+        .show{
+          display: block;
+          transition: all .5s ease-in-out;
+        }
+        
+        .hide{
+          display: none;
+          transition: all .5s ease-in-out;
+        }
     }
 }
 

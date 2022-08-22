@@ -57,10 +57,17 @@ span{
     background: #91043C;
 }
 
+@media (max-width: 1024px){
+    .val{
+        transition: 0.3s ease;
+        width: 48%;
+    }
+}
+
 @media (max-width: 810px){
     .val{
         transition: 0.3s ease;
-        width: 270px;
+        width: 49%;
     }
 }
 
