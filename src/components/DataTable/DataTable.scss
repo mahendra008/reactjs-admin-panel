@@ -67,3 +67,24 @@ input[type=text]:focus~.Mui-focused{
     padding-top: 8px;
     padding-bottom: 8px;
 }
+
+.MuiToolbar-root{
+    overflow-x: hidden;
+}
+
+@media (max-width: 410px){
+    .dataTable{
+        transition: 0.3s ease;
+        margin: 0 5px 30px 5px;
+
+        .MuiToolbar-root{
+            padding-left: 0;
+        }
+    }
+
+    .MuiTablePagination-selectLabel{
+        width: 38px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}

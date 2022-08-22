@@ -129,3 +129,15 @@
 .links{
   scrollbar-width:thin;
 }
+
+.navlistOpen{
+  transition: 0.3s ease;
+  left: 0px !important;
+}
+
+@media (max-width: 810px) {
+  .navlist{
+    transition: 0.3s ease;
+    left: -250px;
+  }
+}

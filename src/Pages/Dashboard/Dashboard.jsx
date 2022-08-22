@@ -4,6 +4,7 @@ import DataTable from "../../Components/DataTable/DataTable"
 import PageTitle from "../../Components/PageTitle/PageTitle"
 
 const Dashboard = () => {
+
   return (
     <div className="dashboard">
       <PageTitle title="Dashboard" route="Home / Dashboard" />
@@ -13,7 +14,6 @@ const Dashboard = () => {
         <CounterWidget name='hoto_submit' />
         <CounterWidget name='hoto_approve' />
       </div>
-      {/* <DataGrid /> */}
       <DataTable grid='users' />
     </div>
   )

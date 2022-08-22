@@ -19,6 +19,11 @@ const Main = () => {
   const toggleSiteList = () => {
     setShowSiteList(!showSiteList);
   }
+
+  const toggleMenu = () => {
+      document.querySelector('.navlist').classList.toggle('navlistOpen');
+      document.querySelector('.rightSection').classList.toggle('toRight');
+  }
   
   const hideSiteList = () => {
     setShowSiteList(false);
@@ -26,7 +31,7 @@ const Main = () => {
 
   return (
     <header>
-      <div className="headLeft">
+      <div className="headLeft" onClick={toggleMenu}>
         <MenuIcon className="icons"/>
       </div>
       <div className="headRight">

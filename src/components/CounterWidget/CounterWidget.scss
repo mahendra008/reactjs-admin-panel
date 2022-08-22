@@ -56,3 +56,17 @@ span{
 .val:nth-child(5) svg{
     background: #91043C;
 }
+
+@media (max-width: 810px){
+    .val{
+        transition: 0.3s ease;
+        width: 270px;
+    }
+}
+
+@media (max-width: 410px){
+    .val{
+        transition: 0.3s ease;
+        width: 400px;
+    }
+}
