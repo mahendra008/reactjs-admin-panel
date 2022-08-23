@@ -1,0 +1,35 @@
+.notfound{
+    .notfoundimg{
+        position: relative;
+        padding: 0 15px;
+        text-align: center;
+        margin-left: 15px;
+        opacity: 0.4;
+        svg{
+            top: 52%;
+            left: 52%;
+            position: absolute;
+            color: rgb(255, 29, 29);
+        }
+        img{
+            width: 320px;
+            height: 320px;
+        }
+    }
+
+    h1, h3{
+        text-align: center;
+        color: rgba(0, 0, 0, 0.1);
+    }
+
+    h1{
+        font-size: 170px;
+        line-height: 110px;
+    }
+
+    h3{
+        font-size: 40px;
+        letter-spacing: 5px;
+        margin-left: 42px;
+    }
+}

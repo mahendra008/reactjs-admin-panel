@@ -44,7 +44,7 @@ const NavList = () => {
                         <HomeWorkOutlinedIcon sx={{ fontSize: 20 }} />
                         <p>Home</p>
                     </div>
-                    {(expandMenu.home) ? <KeyboardArrowDownOutlinedIcon className='arrowIcon' /> : <KeyboardArrowLeftIcon className='arrowIcon' />}
+                    {(expandMenu.home) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
                 </div>
                 <ul className={(expandMenu.home) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/">
@@ -62,7 +62,7 @@ const NavList = () => {
                         <Inventory2OutlinedIcon sx={{ fontSize: 20 }} />
                         <p>Inventory</p>
                     </div>
-                    {(expandMenu.home1) ? <KeyboardArrowDownOutlinedIcon className='arrowIcon' /> : <KeyboardArrowLeftIcon className='arrowIcon' />}
+                    {(expandMenu.home1) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
                     </div>
                 <ul className={(expandMenu.home1) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/healthcheck">
@@ -74,7 +74,7 @@ const NavList = () => {
                         <InfoOutlinedIcon sx={{ fontSize: 20 }} />
                         <p>Services</p>
                     </div>
-                    {(expandMenu.services) ? <KeyboardArrowDownOutlinedIcon className='arrowIcon' /> : <KeyboardArrowLeftIcon className='arrowIcon' />}
+                    {(expandMenu.services) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
                 </div>
                 <ul className={(expandMenu.services) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/users">
@@ -94,7 +94,7 @@ const NavList = () => {
                             <p>Utilities</p>
                         </div>
                     </div>
-                    {(expandMenu.utilities) ? <KeyboardArrowDownOutlinedIcon className='arrowIcon' /> : <KeyboardArrowLeftIcon className='arrowIcon' />}
+                    {(expandMenu.utilities) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
                 </div>
                 <ul className={(expandMenu.utilities) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/dashboard1">
@@ -115,7 +115,7 @@ const NavList = () => {
                             <ManageAccountsOutlinedIcon sx={{ fontSize: 20 }} />
                             <p>Accounts</p>
                         </div>
-                    {(expandMenu.accounts) ? <KeyboardArrowDownOutlinedIcon className='arrowIcon' /> : <KeyboardArrowLeftIcon className='arrowIcon' />}
+                    {(expandMenu.accounts) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
                 </div>
                 <ul className={(expandMenu.accounts) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/users">
