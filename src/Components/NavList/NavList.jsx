@@ -1,34 +1,83 @@
 import { useState } from 'react'
 import { NavLink } from "react-router-dom"
 
-import './NavList.scss'
-import Logo from '../../Assets/Images/jio_logo.png';
+import menu from "../../Config/menu"
 
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import TableViewOutlinedIcon from '@mui/icons-material/TableViewOutlined';
-import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
-import HealthAndSafetyOutlinedIcon from '@mui/icons-material/HealthAndSafetyOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
-import SettingsSuggestOutlinedIcon from '@mui/icons-material/SettingsSuggestOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import HomeWorkOutlinedIcon from '@mui/icons-material/HomeWorkOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import AutoModeOutlinedIcon from '@mui/icons-material/AutoModeOutlined';
-import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
+import "./NavList.scss"
+import Logo from "../../Assets/Images/jio_logo.png";
 
 
 const NavList = () => {
 
-    const [ expandMenu, setExpandMenu ] = useState({ home: false, home1: false, services: false, utilities: false, accounts: false })
+    const [ expandMenu, setExpandMenu ] = useState({})
+    let tempMenuState = {};
 
-    const menuAction = (item) => {
+    const menuAction = (event, item) => {
+        event.stopPropagation();
         let menu = { ...expandMenu };
         menu[item] = !menu[item];
         setExpandMenu({...menu});
     }
+
+    let menuList = [];
+    let menuItems = menu.items;
+    
+    const createTab = (items) => {
+        let menuState = { ...tempMenuState };
+        menuState[items.id] = false; 
+        tempMenuState = {...menuState};
+        return (
+            <>
+                <div className="title" onClick={(e) =>{menuAction(e, items.id)}}>
+                    <div className='titleItems'>
+                    <span className="material-symbols-sharp">{items.icon}</span>
+                        <p>{items.title}</p>
+                    </div>
+                    {(expandMenu[items.id]) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
+                </div>
+            </>
+        );
+    }
+
+    const createUl = (list, id) => {
+        let listItems = [];
+        let items = []
+
+        list.forEach((li) => {
+            if(li.list === undefined){
+                listItems.push(
+                    <NavLink activeClassName="active" to={li.route}>
+                        <li>
+                            <span className="material-symbols-sharp">{li.icon}</span>
+                            {li.title}
+                        </li>
+                    </NavLink>
+                );
+            }
+            else{
+                let div = createTab(li);
+                listItems.push(div);
+
+                let nestul = createUl(li.list, li.id);
+                listItems.push(nestul);
+            }
+
+        })
+        
+        items.push(<ul className={(expandMenu[id]) ? 'show' : 'hide'} onClick={() =>{menuAction(id)}}>{listItems}</ul>);
+        return items;
+    }
+
+    menuItems.forEach((item) => {
+        if(item.list && item.list.length > 0){
+            let div = createTab(item);
+            menuList.push(div);
+    
+            let ul = createUl(item.list, item.id);
+            menuList.push(ul);
+        }
+    });
+
 
     return (
         <div className='navlist'>
@@ -38,96 +87,139 @@ const NavList = () => {
                     <h2>CNAAP</h2>
                 </div>
             </NavLink>
-            <div className="links">
+            <div className="links">{/*
                 <div className="title" onClick={() =>{menuAction('home')}}>
                     <div className='titleItems'>
-                        <HomeWorkOutlinedIcon sx={{ fontSize: 20 }} />
+                    <span className="material-symbols-sharp">home_work</span>
                         <p>Home</p>
                     </div>
-                    {(expandMenu.home) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
+                    {(expandMenu.home) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
                 </div>
                 <ul className={(expandMenu.home) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/">
-                        <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                        <li>
+                            <span className="material-symbols-sharp">dashboard</span>
+                            Dashbaord
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/users">
-                        <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                        <li>
+                            <span className="material-symbols-sharp">format_list_bulleted</span>
+                            Data Tables
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/widgets">
-                        <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                        <li>
+                            <span className="material-symbols-sharp">widgets</span>
+                            Widgets
+                        </li>
                     </NavLink>
-                </ul>    
+                </ul>
                     <div className="title" onClick={() =>{menuAction('home1')}}>
                     <div className='titleItems'>
-                        <Inventory2OutlinedIcon sx={{ fontSize: 20 }} />
+                        <span className="material-symbols-sharp">inventory_2</span>
                         <p>Inventory</p>
                     </div>
-                    {(expandMenu.home1) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
+                    {(expandMenu.home1) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
                     </div>
                 <ul className={(expandMenu.home1) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/healthcheck">
-                        <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                        <li>
+                            <span className="material-symbols-sharp">health_and_safety</span>
+                            Health-Check
+                        </li>
                     </NavLink>
                 </ul>
                 <div className="title" onClick={() =>{menuAction('services')}}>
                     <div className='titleItems'>
-                        <InfoOutlinedIcon sx={{ fontSize: 20 }} />
+                        <span className="material-symbols-sharp">info</span>
                         <p>Services</p>
                     </div>
-                    {(expandMenu.services) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
+                    {(expandMenu.services) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
                 </div>
                 <ul className={(expandMenu.services) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/users">
-                        <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                        <li>
+                            <span className="material-symbols-sharp">account_circle</span>
+                            Users
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/logs">
-                        <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                        <li>
+                            <span className="material-symbols-sharp">playlist_add_check</span>
+                            Logs
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/settings">
-                        <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                        <li>
+                            <span className="material-symbols-sharp">settings_suggest</span>
+                            Settings
+                        </li>
                     </NavLink>
                 </ul>
                 <div className="title" onClick={() =>{menuAction('utilities')}}>
                     <div className='titleItems'>
                         <div className='titleItems'>
-                            <AutoModeOutlinedIcon sx={{ fontSize: 20 }} />
+                            <span className="material-symbols-sharp">crisis_alert</span>
                             <p>Utilities</p>
                         </div>
                     </div>
-                    {(expandMenu.utilities) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
+                    {(expandMenu.utilities) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
                 </div>
                 <ul className={(expandMenu.utilities) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/dashboard1">
-                        <li><DashboardOutlinedIcon className='icons'/> Dashbaord</li>
+                    <NavLink activeClassName="active" to="/">
+                        <li>
+                            <span className="material-symbols-sharp">dashboard</span>
+                            Dashbaord
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/users">
-                        <li><TableViewOutlinedIcon className='icons' /> Data Tables</li>
+                        <li>
+                            <span className="material-symbols-sharp">format_list_bulleted</span>
+                            Data Tables
+                        </li>
                     </NavLink>
-                    <NavLink activeClassName="active" to="/widget1">
-                        <li><WidgetsOutlinedIcon className='icons' /> Widgets</li>
+                    <NavLink activeClassName="active" to="/widgets">
+                        <li>
+                            <span className="material-symbols-sharp">widgets</span>
+                            Widgets
+                        </li>
                     </NavLink>
                     <NavLink activeClassName="active" to="/healthcheck1">
-                        <li><HealthAndSafetyOutlinedIcon className='icons' /> Health-Check</li>
+                        <li>
+                            <span className="material-symbols-sharp">health_and_safety</span> 
+                            Health-Check
+                        </li>
                     </NavLink>
                 </ul>
                 <div className="title" onClick={() =>{menuAction('accounts')}}>
                         <div className='titleItems'>
-                            <ManageAccountsOutlinedIcon sx={{ fontSize: 20 }} />
+                            <span className="material-symbols-sharp">settings_applications</span>
                             <p>Accounts</p>
                         </div>
-                    {(expandMenu.accounts) ? <KeyboardArrowLeftIcon className='arrowIcon' /> : <KeyboardArrowDownOutlinedIcon className='arrowIcon' />}
+                    {(expandMenu.accounts) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
                 </div>
                 <ul className={(expandMenu.accounts) ? 'show' : 'hide'}>
                     <NavLink activeClassName="active" to="/users">
-                        <li><AccountCircleOutlinedIcon className='icons' /> Users</li>
+                        <li>
+                            <span className="material-symbols-sharp">account_circle</span>
+                            Users
+                        </li>
                     </NavLink>
-                    <NavLink activeClassName="active" to="/logs1">
-                        <li><PlaylistAddCheckOutlinedIcon className='icons' /> Logs</li>
+                    <NavLink activeClassName="active" to="/logs">
+                        <li>
+                            <span className="material-symbols-sharp">playlist_add_check</span>
+                            Logs
+                        </li>
                     </NavLink>
-                    <NavLink activeClassName="active" to="/settings1">
-                        <li><SettingsSuggestOutlinedIcon className='icons' /> Settings</li>
+                    <NavLink activeClassName="active" to="/settings">
+                        <li>
+                            <span className="material-symbols-sharp">settings_suggest</span>
+                            Settings
+                        </li>
                     </NavLink>
-                </ul>
+                </ul> */}
+                {menuList}
             </div>
         </div>
     )
