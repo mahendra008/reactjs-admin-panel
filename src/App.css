@@ -54,6 +54,23 @@ svg, img, div{
   border: solid 2px transparent;
 }
 
+.flexCard{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  flex-wrap: wrap;
+}
+
+.blockCard{
+  width: 100%;
+  padding: 0 15px;
+}
+
+.shadowbox{
+  box-shadow: 1px 0px 4px;
+  border-radius: 5px;
+}
+
 @media (max-width: 810px) {
   .toRight{
     width: calc(100% - 250px) !important;

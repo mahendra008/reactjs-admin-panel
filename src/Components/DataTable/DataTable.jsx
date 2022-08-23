@@ -55,7 +55,8 @@ const DataTable = (props) => {
     const columns = useMemo(() => source.columns, []);
 
   return (
-      <div className="dataTable">
+    <div className='blockCard'>
+      <div className="shadowbox">
           <MaterialReactTable
               columns={columns}
               data={data}
@@ -81,6 +82,7 @@ const DataTable = (props) => {
               sorting,
               }}
           />
+      </div>
       </div>
   )
 }
