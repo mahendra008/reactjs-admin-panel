@@ -62,10 +62,19 @@ svg, img, div{
   border: solid 2px transparent;
 }
 
+.maincard{
+  padding: 0 15px;
+  box-shadow: 1px 0px 4px;
+  border-radius: 5px;
+  margin: 0 15px 15px 15px;
+  background: #FFF;
+}
+
 .flexCard{
   display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
+  /* justify-content: space-between; */
+  gap: 2px 10px;
+  padding: 15px 0;
   flex-wrap: wrap;
 }
 
@@ -92,6 +101,13 @@ svg, img, div{
 }
 
 @media (max-width: 410px) {
+  .maincard{
+      padding: 0 5px;
+      margin: 0 5px 5px 5px
+  }
+  .blockCard{
+    padding: 0 5px;
+  }
   .toRight{
     width: calc(100% - 250px) !important;
     margin-left: 250px !important;

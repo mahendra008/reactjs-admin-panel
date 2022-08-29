@@ -1,5 +1,12 @@
 export default {items:[
 	{
+		list:[
+			{type: 'route', icon: 'dashboard', title: 'L2 Switch Life Cycle', route:'/l2'},
+			{type: 'route', icon: 'dashboard', title: 'DCN Switch LIfe Sycle', route:'/dcn'},
+			{type: 'route', icon: 'dashboard', title: 'ASR 901 As CSS', route:'/as901'}
+		]
+	},
+	{
 		type: 'tab', 
 		icon: 'home_work', 
 		title: 'Planning',

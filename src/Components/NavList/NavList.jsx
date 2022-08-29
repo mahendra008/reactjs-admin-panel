@@ -40,6 +40,7 @@ const NavList = () => {
     }
 
     const createUl = (list, id) => {
+		console.log('--- id', id);
         let listItems = [];
         let items = []
 
@@ -64,15 +65,17 @@ const NavList = () => {
 
         })
         
-        items.push(<ul className={(expandMenu[id]) ? 'show' : 'hide'} onClick={() =>{menuAction(id)}}>{listItems}</ul>);
+        items.push(<ul className={(id === undefined || expandMenu[id]) ? 'show' : 'hide'} onClick={() =>{menuAction(id)}}>{listItems}</ul>);
         return items;
     }
 
     menuItems.forEach((item) => {
         if(item.list && item.list.length > 0){
-            let div = createTab(item);
-            menuList.push(div);
-    
+			if(item.type === 'tab'){
+				let div = createTab(item);
+				menuList.push(div);
+			}
+			
             let ul = createUl(item.list, item.id);
             menuList.push(ul);
         }
@@ -87,138 +90,7 @@ const NavList = () => {
                     <h2>CNAAP</h2>
                 </div>
             </NavLink>
-            <div className="links">{/*
-                <div className="title" onClick={() =>{menuAction('home')}}>
-                    <div className='titleItems'>
-                    <span className="material-symbols-sharp">home_work</span>
-                        <p>Home</p>
-                    </div>
-                    {(expandMenu.home) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
-                </div>
-                <ul className={(expandMenu.home) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/">
-                        <li>
-                            <span className="material-symbols-sharp">dashboard</span>
-                            Dashbaord
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/users">
-                        <li>
-                            <span className="material-symbols-sharp">format_list_bulleted</span>
-                            Data Tables
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/widgets">
-                        <li>
-                            <span className="material-symbols-sharp">widgets</span>
-                            Widgets
-                        </li>
-                    </NavLink>
-                </ul>
-                    <div className="title" onClick={() =>{menuAction('home1')}}>
-                    <div className='titleItems'>
-                        <span className="material-symbols-sharp">inventory_2</span>
-                        <p>Inventory</p>
-                    </div>
-                    {(expandMenu.home1) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
-                    </div>
-                <ul className={(expandMenu.home1) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/healthcheck">
-                        <li>
-                            <span className="material-symbols-sharp">health_and_safety</span>
-                            Health-Check
-                        </li>
-                    </NavLink>
-                </ul>
-                <div className="title" onClick={() =>{menuAction('services')}}>
-                    <div className='titleItems'>
-                        <span className="material-symbols-sharp">info</span>
-                        <p>Services</p>
-                    </div>
-                    {(expandMenu.services) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
-                </div>
-                <ul className={(expandMenu.services) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/users">
-                        <li>
-                            <span className="material-symbols-sharp">account_circle</span>
-                            Users
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/logs">
-                        <li>
-                            <span className="material-symbols-sharp">playlist_add_check</span>
-                            Logs
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/settings">
-                        <li>
-                            <span className="material-symbols-sharp">settings_suggest</span>
-                            Settings
-                        </li>
-                    </NavLink>
-                </ul>
-                <div className="title" onClick={() =>{menuAction('utilities')}}>
-                    <div className='titleItems'>
-                        <div className='titleItems'>
-                            <span className="material-symbols-sharp">crisis_alert</span>
-                            <p>Utilities</p>
-                        </div>
-                    </div>
-                    {(expandMenu.utilities) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
-                </div>
-                <ul className={(expandMenu.utilities) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/">
-                        <li>
-                            <span className="material-symbols-sharp">dashboard</span>
-                            Dashbaord
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/users">
-                        <li>
-                            <span className="material-symbols-sharp">format_list_bulleted</span>
-                            Data Tables
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/widgets">
-                        <li>
-                            <span className="material-symbols-sharp">widgets</span>
-                            Widgets
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/healthcheck1">
-                        <li>
-                            <span className="material-symbols-sharp">health_and_safety</span> 
-                            Health-Check
-                        </li>
-                    </NavLink>
-                </ul>
-                <div className="title" onClick={() =>{menuAction('accounts')}}>
-                        <div className='titleItems'>
-                            <span className="material-symbols-sharp">settings_applications</span>
-                            <p>Accounts</p>
-                        </div>
-                    {(expandMenu.accounts) ? <span className='material-symbols-sharp'>keyboard_arrow_left</span> : <span className='material-symbols-sharp'>keyboard_arrow_down</span>}
-                </div>
-                <ul className={(expandMenu.accounts) ? 'show' : 'hide'}>
-                    <NavLink activeClassName="active" to="/users">
-                        <li>
-                            <span className="material-symbols-sharp">account_circle</span>
-                            Users
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/logs">
-                        <li>
-                            <span className="material-symbols-sharp">playlist_add_check</span>
-                            Logs
-                        </li>
-                    </NavLink>
-                    <NavLink activeClassName="active" to="/settings">
-                        <li>
-                            <span className="material-symbols-sharp">settings_suggest</span>
-                            Settings
-                        </li>
-                    </NavLink>
-                </ul> */}
+            <div className="links">
                 {menuList}
             </div>
         </div>
